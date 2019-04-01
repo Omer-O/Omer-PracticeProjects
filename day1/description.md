@@ -1,10 +1,10 @@
-# Day 1 playgfround
+# Day 1 - Playground
 
-playing with formating the md and practising commits
+Playing with formating the md and practising commits.
 
-----
+---
 
-### emphasis
+### Emphasis
 
 This is emphasis test, *italic text*, __bold text__
 
