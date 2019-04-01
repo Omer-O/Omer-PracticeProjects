@@ -21,3 +21,5 @@ Column 1 | Coll 2 | Coll 3
 --- | --- | ---
 blah | `blah` | blah
 1 | 2 | 3
+new raw | new raw | new raw
+ 4 | 5 | 6
