@@ -9,3 +9,7 @@ playing with formating the md and practising commits
 
 ### line below
 ----
+
+### emphasis test
+
+This is emphasis test, *italic text*, __bold text__
