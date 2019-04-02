@@ -1,27 +1,26 @@
 // EXERCISE 1
-//
-// Write a function named logType that expects a single argument and logs a different string depending on the type/value of the argument that is passed to it. The string it logs should be one of the following:
-// "undefined!"
-// "null!"
-// "number!"
-// "not a number!"
-// "string!"
-// "boolean!"
-// "function!"
-// "object!"
-// "array!"
-// "I have no idea!"
+/*
+Write a function named logType that expects a single argument and logs a different string
+depending on the type/value of the argument that is passed to it. The string it logs should be one of the following:
+"undefined!"
+"null!"
+"number!"
+"not a number!"
+"string!"
+"boolean!"
+"function!"
+"object!"
+"array!"
+"I have no idea!"
+*/
 
 //define some variabels for test
 var obj = {
     name: "Grzegorz",
-    age: 22
+    age: 18
 };
-
 var test;
 var array = [];
-
-function fn() {}
 
 // the function
 function logType(argument) {
@@ -53,7 +52,7 @@ logType(12345);
 logType(NaN);
 logType("this is a string");
 logType(true);
-logType(fn);
+logType(logType);
 logType(obj);
 logType(array);
 
@@ -64,13 +63,16 @@ var a = {
     Paris: "France",
     "New York": "USA"
 };
-// Then create a new empty object b and use a for..in loop to iterate over all of a's properties. Give b properties whose names are the values from a and whose values are the property names from a. The result should be an object that looks like this:
-//
-// {
-//     Germany: 'Berlin',
-//     France: 'Paris',
-//     USA: 'New York'
-// }
+/*
+Then create a new empty object b and use a for..in loop to iterate over all of a's properties.
+Give b properties whose names are the values from a and whose values are the property names from a.
+The result should be an object that looks like this:
+{
+    Germany: 'Berlin',
+    France: 'Paris',
+    USA: 'New York'
+}
+*/
 console.log("\nEXERCISE 2:");
 var b = {};
 for (var key in a) {
