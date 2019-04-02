@@ -1,0 +1,33 @@
+* {
+    /* background: red; */
+}
+
+.header {
+    border: 10px solid black;
+    height: 200px;
+    position: relative;
+}
+
+#logo {
+    width: 200px;
+    height: 200px;
+    background: tomato;
+    position: absolute;
+    /* left: 200px;
+    top: 100px; */
+    /* float: left; */
+    /* display: inline-block; */
+}
+
+#menu {
+    width: 200px;
+    height: 200px;
+    background: violet;
+    position: absolute;
+    right: 0px;
+    /* float: right; */
+    /* display: inline-block; */
+}
+
+p {
+}
