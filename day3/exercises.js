@@ -70,7 +70,7 @@ That is, it should return the sum of all the numbers that were ever passed to it
 function getTotaler() {
     var globalVar = 0;
     return function(number) {
-        globalVar = globalVar + number;
+        globalVar += number;
         console.log(globalVar);
     };
 }
