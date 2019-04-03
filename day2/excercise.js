@@ -1,3 +1,4 @@
+// EDITING ON webbrowser test
 // EXERCISE 1
 /*
 Write a function named logType that expects a single argument and logs a different string
