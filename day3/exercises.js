@@ -43,7 +43,7 @@ to get a number that is greater than or equal to 1000000 and return that.
 */
 
 function million(number) {
-    if (number <= 0 || Number.isNaN(number)) {
+    if (number <= 0 || isNaN(number)) {
         return "ERROR";
     } else if (number >= 1000000) {
         return number;
@@ -55,11 +55,8 @@ function million(number) {
     }
 }
 
-// wait a bit to test exercise 3 after exercise 2
-setTimeout(function() {
-    console.log("\rExercise 3 test:");
-    console.log(million(12312));
-}, 2500);
+console.log("\rExercise 3 test:");
+console.log(million(12312));
 
 /*
 BONUS) Write a function that returns a function that can be called repeatedly and passed a number each time.
@@ -72,6 +69,7 @@ function getTotaler() {
     return function(number) {
         globalVar += number;
         console.log(globalVar);
+        return globalVar;
     };
 }
 
