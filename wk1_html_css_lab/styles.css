@@ -1,0 +1,109 @@
+.header {
+    padding: 10px;
+    height: 25px;
+}
+
+#logo {
+    float: left;
+}
+
+#menu {
+    float: right;
+}
+#poster {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+
+#bigImage {
+    /* position: absolute; */
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+#title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 28px;
+    font-style: italic;
+    font-family: serif;
+}
+
+button {
+    text-align: center;
+    display: inline-block;
+    border: 2px solid #cc6600;
+    background-color: #ffcc33;
+    color: #cc6600;
+    padding: 2px 50px;
+    border-radius: 45px;
+    font-size: 28px;
+    font-family: serif;
+}
+
+#features {
+    width: 70%;
+    border-color: red, solid;
+}
+
+#container {
+    width: 75%;
+    height: 40vw;
+    margin: 0 auto;
+    /* debuging */
+    border: dotted;
+    border-color: orange;
+}
+
+.cell {
+    display: inline-block;
+    position: relative;
+    /* top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    float: left;
+    width: 49%;
+    border: solid;
+    border-color: purple;
+}
+
+.icon {
+    position: absolute;
+    /* width: 30%;
+    top: 50%; */
+    /* left: 50%; */
+    display: inline-block;
+    width: 15%;
+    height: 15%;
+    float: left;
+    /* transform: translate(0%, 50%); */
+    /* debuging */
+    border: solid;
+    border-color: red;
+}
+
+.text {
+    display: inline-block;
+    width: 70%;
+    float: right;
+    /* debuging */
+    border: solid;
+    border-color: green;
+}
+
+#copyright {
+    display: inline-block;
+    width: 100%;
+    background-color: gray;
+    font-size: 12px;
+    /* margin: 0 auto; */
+    /* debuging */
+    border: solid;
+    border-color: magenta;
+}
