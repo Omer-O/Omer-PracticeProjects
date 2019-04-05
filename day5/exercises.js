@@ -42,15 +42,15 @@ Characters that are not alphabetic should not change. String.prototype.toUpperCa
 */
 
 function invertCase(str) {
-    var newStr = [];
+    var newStr = "";
     for (var i = 0; i < str.length; i++) {
         if (str[i] === str[i].toLowerCase()) {
-            newStr[i] = str[i].toUpperCase();
+            newStr += str[i].toUpperCase();
         } else if (str[i] === str[i].toUpperCase()) {
-            newStr[i] = str[i].toLowerCase();
+            newStr += str[i].toLowerCase();
         }
     }
-    return newStr.join("");
+    return newStr;
 }
 
 //methods  .toUpperCase, .toLowerCase
