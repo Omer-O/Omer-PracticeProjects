@@ -53,9 +53,8 @@ function invertCase(str) {
     return newStr;
 }
 
-//methods  .toUpperCase, .toLowerCase
 console.log("\nExercise 2:");
-var testSTring = "this IS a TEST of INVERTING";
+var testSTring = "this IS a TEST of INVERTING **!!?{}32452345";
 console.log(testSTring);
 console.log(invertCase(testSTring));
 
@@ -66,7 +65,6 @@ It should be possible to call the start method of instances of Countdown to init
 it should count down to zero starting with the number that was passed to the constructor and logging
 each number to the console with a one second delay.
 */
-// constructor. wait 1s before log a next mumber
 
 function Countdown(arg) {
     var temp = this;
