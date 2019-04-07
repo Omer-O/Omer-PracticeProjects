@@ -97,7 +97,7 @@ button {
     padding-left: 20px;
 }
 
-@media (max-width: 677px) {
+@media (max-width: 768px) {
     #title {
         font-size: 14px;
     }
