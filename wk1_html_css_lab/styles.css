@@ -96,3 +96,16 @@ button {
     color: white;
     padding-left: 20px;
 }
+
+@media (max-width: 677px) {
+    #title {
+        font-size: 14px;
+    }
+
+    .cell {
+        display: inline-block;
+        position: relative;
+        float: left;
+        width: 100%;
+    }
+}
