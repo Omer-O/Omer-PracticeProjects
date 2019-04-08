@@ -1,0 +1,26 @@
+#container {
+    border: 5px solid black;
+    width: 600px;
+    height: 800px;
+}
+
+div {
+    display: inline-block;
+
+}
+
+.slctr {
+    background: violet;
+    font-size: 20px;
+    color: yellow;
+    height: 300px;
+    width: 100px;
+    margin: 0 10px;
+}
+
+#circle {
+    background: tomato;
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+}
