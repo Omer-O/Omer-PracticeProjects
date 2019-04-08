@@ -10,6 +10,7 @@ body {
 }
 
 #headlines {
+    font-size: 0; /* remove hiccough */
     white-space: nowrap;
     position: absolute;
     left: 50%;
@@ -18,5 +19,6 @@ body {
 }
 
 #headlines a {
+    font-size: 18px; /* remove hiccough */
     padding-right: 50px;
 }
