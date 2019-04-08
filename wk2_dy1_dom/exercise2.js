@@ -8,6 +8,6 @@ The function should return an array containing all the elements in the document 
         var myArray = document.getElementsByClassName(classStr);
         console.log(myArray);
     }
-
-    returnArray("text");
+    //test
+    returnArray("row");
 })();
