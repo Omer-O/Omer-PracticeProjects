@@ -21,4 +21,10 @@ body {
 #headlines a {
     font-size: 18px; /* remove hiccough */
     padding-right: 50px;
+    color: black;
+}
+
+#headlines a:hover {
+    text-decoration: underline;
+    color: blue;
 }
