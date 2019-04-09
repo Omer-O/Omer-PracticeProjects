@@ -1,0 +1,17 @@
+#bigger {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 200px;
+  width: 200px;
+  border: solid black;
+}
+
+#smaller {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  height: 50px;
+  width: 50px;
+  border: solid black;
+}
