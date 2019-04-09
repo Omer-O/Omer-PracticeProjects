@@ -5,7 +5,8 @@ The function should return an array containing all the elements in the document 
 */
 (function() {
     function returnArray(classStr) {
-        var myArray = document.getElementsByClassName(classStr);
+        var myArray = [];
+        myArray = document.getElementsByClassName(classStr);
         console.log(myArray);
     }
     //test
