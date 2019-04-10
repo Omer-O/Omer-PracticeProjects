@@ -1,9 +1,9 @@
-#canvas {
+#outerCanvasId {
     position: absolute;
     border: 1px solid red;
 }
 
-#man {
+#innerCanvasId {
     position: relative;
     /* border: 1px dotted gray; */
 }
