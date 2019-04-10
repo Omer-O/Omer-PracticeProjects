@@ -1,3 +1,9 @@
-canvas {
-    border: 1px solid black;
+#canvas {
+    position: absolute;
+    border: 1px solid red;
+}
+
+#man {
+    position: relative;
+    /* border: 1px dotted gray; */
 }

@@ -1,7 +1,14 @@
-var canvas = document.getElementById("canvas");
-var context = canvas.getContext("2d");
-var bodyX = 300;
-var bodyY = 200;
+var man = document.getElementById("man");
+var context = man.getContext("2d");
+var bodyX = 100;
+var bodyY = 100;
+
+//initial position of man canvas
+var x = 350;
+var y = 200;
+
+man.style.left = x + "px";
+man.style.top = y + "px";
 
 context.strokeStyle = "darkblue";
 context.arc(bodyX, bodyY - 50, 50, 0, 360);
@@ -15,3 +22,17 @@ context.lineTo(bodyX - 100, bodyY);
 context.moveTo(bodyX, bodyY + 50);
 context.lineTo(bodyX + 100, bodyY);
 context.stroke();
+
+document.addEventListener("keydown", function(e) {
+    if (e.keyCode === 39) {
+        x++;
+    } else if (e.keyCode === 37) {
+        x--;
+    } else if (e.keyCode === 38) {
+        y--;
+    } else if (e.keyCode === 40) {
+        y++;
+    }
+    man.style.left = x + "px";
+    man.style.top = y + "px";
+});
