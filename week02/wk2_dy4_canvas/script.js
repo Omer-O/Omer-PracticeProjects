@@ -26,13 +26,13 @@ context.stroke();
 
 document.addEventListener("keydown", function(e) {
     if (e.keyCode === 39) {
-        x = x + step;
+        x += step;
     } else if (e.keyCode === 37) {
-        x = x - step;
+        x -= step;
     } else if (e.keyCode === 38) {
-        y = y - step;
+        y -= step;
     } else if (e.keyCode === 40) {
-        y = y + step;
+        y += step;
     }
     man.style.left = x + "px";
     man.style.top = y + "px";
