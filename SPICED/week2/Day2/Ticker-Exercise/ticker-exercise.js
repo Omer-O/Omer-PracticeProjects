@@ -1,18 +1,27 @@
 
-(function () { //iife 'for a local scope'/
 
-var headlines = document.getElementById('headlines');
-var links = headlines.getElementsByTagName('A');
+var headlines = document.getElementById("headlines");
+var links = headlines.getElementsByTagName("A");
 var left = headlines.offsetLeft;
+var animId;
 
-function tickertotheleft() {
+function tickerToTheLeft() {
     left--;
     if (left <= -links[0].offsetWidth) {
         left += links[0].offsetWidth;
         headlines.appendChild(headlines.removeChild(links[0]));
     }
+
     headlines.style.left = left + "px";
-    requestAnimationFrame(tickertotheleft);
+    animId = requestAnimationFrame(tickerToTheLeft);
 }
-tickertotheleft();
-})();
+
+headlines.addEventListener("mouseenter", function() {
+    cancelAnimationFrame(animId);
+});
+
+headlines.addEventListener("mouseleave", function() {
+    tickerToTheLeft();
+});
+
+tickerToTheLeft();
