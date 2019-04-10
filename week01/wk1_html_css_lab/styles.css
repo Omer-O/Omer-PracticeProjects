@@ -1,6 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 3;
+    visibility: hidden;
+}
+
+#overlay.on {
+    visibility: visible;
+}
+
 header {
     width: 100%;
     height: 60px;
+    position: fixed;
+    z-index: 2;
+    background: white;
 }
 
 #logo {
@@ -15,6 +40,44 @@ header {
     padding: 10px;
 }
 
+#box {
+    width: 15%;
+    height: 100%;
+    background: white;
+    padding-top: 60px;
+    padding-left: 20px;
+    /*initial position
+    top can be used only with position relative, absolute, fixed*/
+    position: fixed; /* relative will work too */
+    top: 0;
+    z-index: 5;
+    left: 100%;
+}
+
+#box li {
+    font-size: 2rem;
+    line-height: 2;
+}
+
+#box #x {
+    position: absolute;
+    top: 1%;
+    right: 20%;
+    color: black;
+    font-size: 1.5rem;
+}
+
+#box.on {
+    /*box with class on, where the box ends */
+    left: 85%;
+    transition: left 2s;
+}
+
+#box.off {
+    left: 100%;
+    transition: left 2s;
+}
+
 #bigImage {
     filter: brightness(80%);
 }
@@ -22,6 +85,7 @@ header {
 #poster {
     position: relative;
     width: 100%;
+    margin-top: 60px;
     display: inline-block;
 }
 
@@ -67,6 +131,7 @@ button {
 }
 
 .cell {
+    padding: 4px;
     display: inline-block;
     position: relative;
     float: left;
