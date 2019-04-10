@@ -6,6 +6,7 @@ var bodyY = 100;
 //initial position of man canvas
 var x = 350;
 var y = 200;
+var step = 10;
 
 man.style.left = x + "px";
 man.style.top = y + "px";
@@ -25,13 +26,13 @@ context.stroke();
 
 document.addEventListener("keydown", function(e) {
     if (e.keyCode === 39) {
-        x++;
+        x = x + step;
     } else if (e.keyCode === 37) {
-        x--;
+        x = x - step;
     } else if (e.keyCode === 38) {
-        y--;
+        y = y - step;
     } else if (e.keyCode === 40) {
-        y++;
+        y = y + step;
     }
     man.style.left = x + "px";
     man.style.top = y + "px";
