@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+}
+
+#kitties {
+    position: relative;
+    height: 600px;
+    overflow: hidden; /* prevent to see hidden images out of the screen*/
+}
+
+.kitty {
+    position: absolute; /* width determined by contnent */
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform: translateX(100%);
+}
+
+.kitty.onscreen {
+    transform: translateX(0%);
+    transition-property: transform;
+    transition-duration: 1s;
+}
+
+.kitty img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* object-position: top; /* croping */
+}
+
+.kitty.exit {
+    transform: translateX(-100%);
+    transition-property: transform;
+    transition-duration: 1s;
+}
