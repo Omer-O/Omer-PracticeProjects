@@ -1,0 +1,17 @@
+
+.container{
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+
+.head {
+  height: 70px;
+  background-color: red;
+}
+
+.toes{
+  height: 30px;
+  background-color: green;
+}

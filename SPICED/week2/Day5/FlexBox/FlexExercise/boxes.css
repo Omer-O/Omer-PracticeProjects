@@ -1,0 +1,63 @@
+#container {
+  display: flex;
+  flex-direction: row;
+  
+}
+.gray {
+  background-color: grey;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: flex-end;
+
+}
+.miniorange {
+  background-color: orange;
+  height: 50%;
+  width: 50%;
+}
+
+.black {
+  background-color: black;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.miniyellow {
+  background-color: yellow;
+  height: 50%;
+  width: 50%;
+  align-self: flex-end;
+}
+
+.blue {
+  background-color: blue;
+  height:200px;
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.minigreen {
+  background-color: green;
+  height: 50%;
+  width: 50%;
+  align-self: flex-end;
+}
+
+.purple {
+  background-color: purple;
+  height: 200px;
+  width: 200px;
+  display: flex;
+}
+
+.minipink {
+  background-color: pink;
+  height: 50%;
+  width: 50%;
+}
