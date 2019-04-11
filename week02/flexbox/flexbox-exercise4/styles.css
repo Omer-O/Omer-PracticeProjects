@@ -1,0 +1,63 @@
+main {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.square {
+    display: flex;
+    width: 20%;
+    height: 20vw;
+    margin: 1px;
+}
+
+#one {
+    background: gray;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#two {
+    background: black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#three {
+    background: blue;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+#four {
+    background: purple;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#orange {
+    width: 50%;
+    height: 50%;
+    background: orange;
+}
+
+#yellow {
+    width: 50%;
+    height: 50%;
+    background: yellow;
+}
+
+#green {
+    width: 50%;
+    height: 50%;
+    background: green;
+}
+
+#pink {
+    width: 50%;
+    height: 50%;
+    background: pink;
+}
