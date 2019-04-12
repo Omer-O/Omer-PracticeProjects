@@ -1,0 +1,16 @@
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 70px 1fr 30px;
+  grid-template-columns: 100%;
+}
+
+.head {
+  height: 70px;
+  background-color: red;
+}
+
+.toes{
+  height: 30px;
+  background-color: green;
+}

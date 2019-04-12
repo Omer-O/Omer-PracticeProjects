@@ -1,0 +1,54 @@
+div {
+  vertical-align: top;
+}
+
+.gray {
+  background-color: grey;
+  display: inline-grid;
+  grid-template-rows: repeat(2, 100px);
+  grid-template-columns: repeat(2, 100px);
+}
+
+.miniorange {
+  background-color: orange;
+  grid-row: 1;
+  grid-column: 2;
+
+}
+
+.black {
+  display: inline-grid;
+  background-color: black;
+  grid-template-rows: repeat(2, 100px);
+  grid-template-columns: repeat(2, 100px);
+}
+
+.miniyellow {
+  background-color: yellow;
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.blue {
+  background-color: blue;
+  display: inline-grid;
+  grid-template-rows: repeat(2, 100px);
+  grid-template-columns: repeat(2, 100px);
+}
+
+.minigreen {
+  background-color: green;
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.purple {
+  background-color: purple;
+  display: inline-grid;
+  grid-template-rows: repeat(2, 100px);
+  grid-template-columns: repeat(2, 100px);
+}
+
+.minipink {
+  background-color: pink;
+}
