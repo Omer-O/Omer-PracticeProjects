@@ -1,8 +1,9 @@
 (function() {
     var kitties = document.getElementsByClassName("kitty");
+    var dots = document.getElementsByClassName("dot");
     // console.log("number of kitties: ", kitties.length);
     var cur = 0;
-    setTimeout(moveKitties, 5000); //kick off only
+    setTimeout(moveKitties, 3000); //kick off only
 
     document.addEventListener("transitionend", function fn(e) {
         if (e.target.classList.contains("exit")) {
@@ -21,6 +22,7 @@
     */
 
     function moveKitties() {
+        dots[cur].classList.remove("on");
         // console.log("the current one is: " + cur);
         kitties[cur].classList.remove("onscreen");
         kitties[cur].classList.add("exit");
@@ -29,6 +31,7 @@
             cur = 0;
         }
         // console.log("the next one is: " + cur);
+        dots[cur].classList.add("on");
         kitties[cur].classList.add("onscreen");
     }
 })();
