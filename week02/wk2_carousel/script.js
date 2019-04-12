@@ -12,7 +12,24 @@
             setTimeout(moveKitties, 2000);
         }
     });
-
+    // -------------- clikable dot ver 1 -----------------
+    // for (var i = 0; i < dots.length; i++) {
+    //     (function(i) {
+    //         dots[i].addEventListener("click", function(e) {
+    //             console.log("clicked on dot", i);
+    //             // console.log(e.target.id.replace("dot", ""));
+    //             // console.log([].slice.call(dots).indexOf(e.target));
+    //         });
+    //     })(i);
+    // }
+    // -------------- clikable dot ver 2 -----------------
+    //i does not change
+    [].slice.call(dots).forEach(function(dot, i) {
+        dots[i].addEventListener("click", function(e) {
+            console.log(i);
+        });
+    });
+    // -------------- clikable dot ver 3 -----------------
     /* alternative function
     kitties.[cur].addEventListener() -
     e.target.addEventListener("transitionend", function fn(e) {
