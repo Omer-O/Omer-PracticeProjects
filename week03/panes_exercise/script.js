@@ -7,12 +7,17 @@ $(".bar").on("mousedown", function(e) {
 
 $(".container").on("mousemove", function(e) {
     if (dragging) {
-        $(".bar").css({
-            left: e.clientX + "px"
-        });
-        $("#top").css({
-            width: e.clientX + "px"
-        });
+        if (
+            $(".container").width() - e.clientX > $(".bar").width() ||
+            e.clientX < $(".bar").width()
+        ) {
+            $(".bar").css({
+                left: e.clientX + "px"
+            });
+            $("#top").css({
+                width: e.clientX + "px"
+            });
+        }
     }
 });
 
