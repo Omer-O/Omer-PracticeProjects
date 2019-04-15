@@ -4,7 +4,6 @@
     position: relative;
     margin: 0;
     padding: 0;
-    border: solid 1px red;
     overflow: hidden;
 }
 
@@ -25,14 +24,13 @@ img {
     z-index: 100;
     overflow: hidden;
     width: 50%;
-    border: dotted 1px green;
 }
 
 .bar {
     height: 100%;
     position: absolute;
     left: 50%;
-    background: white;
+    background: lightgray;
     width: 2%;
     z-index: 101;
     border: dotted 1px gray;
