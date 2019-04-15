@@ -1,0 +1,30 @@
+body {
+    margin: 0px;
+}
+
+#ticker {
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px black solid;
+    height: 1.5em;
+}
+
+#headlines {
+    font-size: 0; /* remove hiccough */
+    white-space: nowrap;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    /* border: 1px red solid; */
+}
+
+#headlines a {
+    font-size: 18px; /* remove hiccough */
+    padding-right: 50px;
+    color: black;
+}
+
+#headlines a:hover {
+    text-decoration: underline;
+    color: blue;
+}
