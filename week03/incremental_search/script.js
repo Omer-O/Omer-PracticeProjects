@@ -1,13 +1,3 @@
-/*
-results.hide();
-results.show();
-
-var resultHtml = '';
-for (var i = 0; i < matches.lenght; i++){
-resultHtml += <div class = 'results'> + matches [i] + </div>;
-}
-reuslts.show().html(resultHtml);
-*/
 (function(countries) {
     //-----------------------
     var input = $("input");
@@ -25,17 +15,42 @@ reuslts.show().html(resultHtml);
             }
         }
         if (matches && matches.length) {
-            console.log("matches array exist and is not empty");
             var resultsHtml = "";
             for (var j = 0; j < matches.length; j++) {
                 resultsHtml += '<div class="results">' + matches[j] + "</div>";
             }
         } else {
-            console.log("matches array is empty");
             resultsHtml = '<div class="results">no results</div>';
         }
         results.html(resultsHtml).show();
-        console.log(matches);
+    });
+
+    results.on("mouseover", function(e) {
+        $(e.target).addClass("highlight");
+        $(e.target)
+            .next()
+            .removeClass("highlight");
+        $(e.target)
+            .prev()
+            .removeClass("highlight");
+    });
+
+    results.on("mouseleave", function(e) {
+        $("#results").removeClass("highlight");
+        results.html("").hide();
+    });
+
+    results.on("mousedown", function(e) {
+        input.val($(e.target).html());
+        results.html("").hide();
+    });
+
+    input.on("keydown", function(e) {
+        if (e.keyCode == 40) {
+            console.log("down");
+        } else if (e.keyCode == 38) {
+            console.log("up");
+        }
     });
 })([
     "Afghanistan",
