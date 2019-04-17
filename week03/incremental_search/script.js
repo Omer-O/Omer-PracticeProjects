@@ -1,5 +1,4 @@
 (function(countries) {
-    //-----------------------
     var input = $("input");
     var results = $("#results");
 
@@ -36,7 +35,7 @@
     });
 
     results.on("mouseleave", function(e) {
-        $("#results").removeClass("highlight");
+        results.removeClass("highlight");
         results.html("").hide();
     });
 
@@ -48,8 +47,44 @@
     input.on("keydown", function(e) {
         if (e.keyCode == 40) {
             console.log("down");
+            if (results.find(".highlight").length == 0) {
+                if ($(".results").length > 0) {
+                    $(".results")
+                        .eq(0)
+                        .addClass("highlight");
+                }
+            } else if (results.find(".highlight").length == 1) {
+                // console.log("length: ", $(".results").length);
+                var highlightPosition = $(".results.highlight").index();
+                console.log(
+                    "highlight element found on position: ",
+                    highlightPosition
+                );
+                if (highlightPosition < $(".results").length - 1) {
+                    $(".results")
+                        .eq(highlightPosition + 1)
+                        .addClass("highlight");
+                    $(".results")
+                        .eq(highlightPosition)
+                        .removeClass("highlight");
+                } else {
+                    console.log("last element, do nothing");
+                }
+            }
         } else if (e.keyCode == 38) {
             console.log("up");
+            if (results.find(".highlight").length == 0) {
+                if ($(".results").length > 0) {
+                    $(".results")
+                        .eq($(".results").length - 1)
+                        .addClass("highlight");
+                }
+            } else if (results.find(".highlight").length == 1) {
+                // finish key up
+            }
+        } else if (e.keyCode == 13) {
+            input.val($(".results.highlight").html());
+            results.html("").hide();
         }
     });
 })([
