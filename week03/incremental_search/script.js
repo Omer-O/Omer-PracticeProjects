@@ -73,6 +73,7 @@
             }
         } else if (e.keyCode == 38) {
             console.log("up");
+            var highlightPosition = $(".results.highlight").index();
             if (results.find(".highlight").length == 0) {
                 if ($(".results").length > 0) {
                     $(".results")
@@ -80,9 +81,19 @@
                         .addClass("highlight");
                 }
             } else if (results.find(".highlight").length == 1) {
-                // finish key up
+                console.log("position: ", highlightPosition);
+                if (highlightPosition != 0) {
+                    console.log("not first");
+                    $(".results")
+                        .eq(highlightPosition - 1)
+                        .addClass("highlight");
+                    $(".results")
+                        .eq(highlightPosition)
+                        .removeClass("highlight");
+                }
             }
         } else if (e.keyCode == 13) {
+            console.log("enter pressed");
             input.val($(".results.highlight").html());
             results.html("").hide();
         }
