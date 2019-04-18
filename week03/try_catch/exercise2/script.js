@@ -14,7 +14,7 @@ function translateNumberToGerman() {
     ];
     try {
         number = askForNumber();
-        alert(transloation[number - 1]);
+        return transloation[number - 1];
     } catch (error) {
         console.log(error);
         translateNumberToGerman();
