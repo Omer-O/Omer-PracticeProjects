@@ -1,10 +1,11 @@
 (function(countries) {
-    var input = $("input");
-    var results = $("#results");
+    var resultsContainer = $("#resultsContainer");
 
-    input.on("input", function() {
-        var val = input.val();
+    // get the current value of the text field
+    $("input").on("input", function() {
+        var val = $("input").val();
         var matches = [];
+        // loop through the countries and build a list of countries that start with the value
         for (var i = 0; i < countries.length; i++) {
             if (countries[i].toLowerCase().indexOf(val.toLowerCase()) == 0) {
                 matches.push(countries[i]);
@@ -13,89 +14,86 @@
                 }
             }
         }
+        // if matches array is empty, put the "no results" message into the results element
         if (matches && matches.length) {
             var resultsHtml = "";
+            // if matches array is not empty, loop through them, generate html for each
             for (var j = 0; j < matches.length; j++) {
                 resultsHtml += '<div class="results">' + matches[j] + "</div>";
             }
         } else {
             resultsHtml = '<div class="results">no results</div>';
         }
-        results.html(resultsHtml).show();
+        // Update the DOM just once with the full list of result elements
+        resultsContainer.html(resultsHtml).show();
     });
-
-    results.on("mouseover", function(e) {
+    // mouseover/mouseenter (individual result)
+    resultsContainer.on("mouseover", ".results", function(e) {
+        // remove the highlight class from the result that has it if there is one
+        // add the highlight class to the event target
+        $(".highlight").removeClass("highlight");
         $(e.target).addClass("highlight");
-        $(e.target)
-            .next()
-            .removeClass("highlight");
-        $(e.target)
-            .prev()
-            .removeClass("highlight");
     });
 
-    results.on("mouseleave", function(e) {
-        results.removeClass("highlight");
-        results.html("").hide();
+    // resultsContainer.on("mouseleave", function(e) {
+    //     resultsContainer.removeClass("highlight");
+    //     resultsContainer.html("").hide();
+    // });
+
+    // mousedown (individual result)
+    resultsContainer.on("mousedown", function(e) {
+        $("input").val($(e.target).html());
+        resultsContainer.html("").hide();
     });
 
-    results.on("mousedown", function(e) {
-        input.val($(e.target).html());
-        results.html("").hide();
-    });
-
-    input.on("keydown", function(e) {
+    $("input").on("keydown", function(e) {
+        var resultsList = $(".results");
+        var isHighligted = resultsContainer.find(".highlight").length;
+        var highlightPosition;
+        //if the down arrow is pressed
         if (e.keyCode == 40) {
-            console.log("down");
-            if (results.find(".highlight").length == 0) {
-                if ($(".results").length > 0) {
-                    $(".results")
-                        .eq(0)
-                        .addClass("highlight");
+            // if no result element has the highlight class, add the highlight class to the first result
+            if (!isHighligted) {
+                if (resultsList.length > 0) {
+                    resultsList.eq(0).addClass("highlight");
                 }
-            } else if (results.find(".highlight").length == 1) {
-                // console.log("length: ", $(".results").length);
-                var highlightPosition = $(".results.highlight").index();
-                console.log(
-                    "highlight element found on position: ",
-                    highlightPosition
-                );
-                if (highlightPosition < $(".results").length - 1) {
-                    $(".results")
-                        .eq(highlightPosition + 1)
-                        .addClass("highlight");
-                    $(".results")
-                        .eq(highlightPosition)
-                        .removeClass("highlight");
+                // if a result other than the last one has the highlight class,
+                // remove the highlight class from the result that has it and add it to the next one
+            } else if (isHighligted) {
+                highlightPosition = $(".results.highlight").index();
+                if (highlightPosition < resultsList.length - 1) {
+                    resultsList.eq(highlightPosition + 1).addClass("highlight");
+                    resultsList.eq(highlightPosition).removeClass("highlight");
+                    // if the last result element has the highlight class, do nothing
                 } else {
-                    console.log("last element, do nothing");
+                    //console.log("last element, do nothing");
                 }
             }
+            // if the up arrow is pressed
         } else if (e.keyCode == 38) {
-            console.log("up");
-            var highlightPosition = $(".results.highlight").index();
-            if (results.find(".highlight").length == 0) {
-                if ($(".results").length > 0) {
-                    $(".results")
-                        .eq($(".results").length - 1)
+            highlightPosition = $(".results.highlight").index();
+            // if no result element has the highlight class, add the highlight class to the last result
+            if (!isHighligted) {
+                if (resultsList.length > 0) {
+                    resultsList
+                        .eq(resultsList.length - 1)
                         .addClass("highlight");
                 }
-            } else if (results.find(".highlight").length == 1) {
-                console.log("position: ", highlightPosition);
+                // if a result other than the first one has the highlight class,
+                // remove the highlight class from the result that has it and add it to the previous one
+            } else if (isHighligted) {
                 if (highlightPosition != 0) {
-                    console.log("not first");
-                    $(".results")
-                        .eq(highlightPosition - 1)
-                        .addClass("highlight");
-                    $(".results")
-                        .eq(highlightPosition)
-                        .removeClass("highlight");
+                    resultsList.eq(highlightPosition - 1).addClass("highlight");
+                    resultsList.eq(highlightPosition).removeClass("highlight");
                 }
             }
+            // if the return key is pressed
         } else if (e.keyCode == 13) {
-            console.log("enter pressed");
-            input.val($(".results.highlight").html());
-            results.html("").hide();
+            // take the text contained by the element with the highlight class and
+            // set it as the value of the text field
+            $("input").val($(".results.highlight").html());
+            // empty and/or hide the results
+            resultsContainer.html("").hide();
         }
     });
 })([
