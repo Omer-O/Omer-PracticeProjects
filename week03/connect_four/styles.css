@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+#container {
+    display: flex;
+    height: 100vw;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+#board {
+    display: flex;
+}
+
+/* .column {
+    border: 1px green solid;
+} */
+
+.slot {
+    width: 100px;
+    height: 100px;
+    background: blue;
+    padding: 10px;
+}
+
+.hole {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.slot.player1 .hole {
+    background-color: red;
+}
+
+.slot.player2 .hole {
+    background-color: yellow;
+}
