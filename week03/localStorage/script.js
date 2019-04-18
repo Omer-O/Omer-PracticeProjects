@@ -1,4 +1,13 @@
+try {
+    $("#input").val(localStorage.getItem("temporaryText"));
+} catch (error) {
+    console.log(error);
+}
+
 $("#input").on("input", function() {
-    localStorage.setItem("temporaryText", $("#input").val());
+    try {
+        localStorage.setItem("temporaryText", $("#input").val());
+    } catch (error) {
+        console.log(error);
+    }
 });
-$("#input").val(localStorage.getItem("temporaryText"));
