@@ -51,7 +51,7 @@
 
 #modal_container {
     position: absolute;
-    display: flex;
+    display: inline-grid;
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -62,14 +62,31 @@
     visibility: hidden;
     transition: all 2s;
 }
+#modal_container.on {
+    visibility: visible;
+}
 
 h1 {
     font-size: 48px;
     color: white;
     font-family: "Helvetica";
+    margin: 0px;
+    padding: 0px;
 }
 
-#modal_container.on {
+#message {
+    color: white;
+    font-size: 10px;
+    font-family: "Helvetica";
+    overflow-wrap: break-word;
+    text-align: center;
+    width: 60%;
+    margin: 0px;
+    padding: 0px;
+    visibility: hidden;
+    transition: all 2s;
+}
+#message.on {
     visibility: visible;
 }
 
