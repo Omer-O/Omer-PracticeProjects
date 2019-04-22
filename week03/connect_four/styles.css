@@ -13,14 +13,24 @@
     display: flex;
 }
 
-/* .column {
-    border: 1px green solid;
-} */
+.column {
+    border: 1px dashed gray;
+    border-right: none;
+}
+.column:last-child {
+    border-right: 1px dashed gray;
+}
+
+.slot {
+    border-bottom: 1px dashed gray;
+}
+.slot:last-child {
+    border-bottom: none;
+}
 
 .slot {
     width: 100px;
     height: 100px;
-    background: blue;
     padding: 10px;
 }
 
