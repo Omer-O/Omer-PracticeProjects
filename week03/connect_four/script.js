@@ -1,5 +1,5 @@
 (function() {
-    var currentPlayer = "player1";
+    var currentPlayer = "player1red";
     const diagonalsIndex = [
         [0, 7, 14, 21, 28, 35],
         [1, 8, 15, 22, 29],
@@ -27,11 +27,12 @@
     }
 
     $(".column").on("click", function(e) {
+        e.stopPropagation();
         var slotsInColumn = $(e.currentTarget).find(".slot");
         for (var i = 5; i >= 0; i--) {
             if (
-                !slotsInColumn.eq(i).hasClass("player1") &&
-                !slotsInColumn.eq(i).hasClass("player2")
+                !slotsInColumn.eq(i).hasClass("player1red") &&
+                !slotsInColumn.eq(i).hasClass("player2green")
             ) {
                 slotsInColumn.eq(i).addClass(currentPlayer);
                 break;
@@ -43,6 +44,9 @@
         }
         var slotsInRow = $(".column").find(".row" + i);
 
+        if (checkForVictory(slotsInColumn) || checkForVictory(slotsInRow)) {
+            victory(currentPlayer);
+        }
         // check all diagonal slots
         for (var k = 0; k < slotsInDiagonal.length; k++) {
             if (checkForVictory(slotsInDiagonal[k])) {
@@ -50,18 +54,14 @@
                 break;
             }
         }
-
-        if (checkForVictory(slotsInColumn) || checkForVictory(slotsInRow)) {
-            victory(currentPlayer);
-        }
         switchPlayers();
     });
 
     function switchPlayers() {
-        if (currentPlayer == "player1") {
-            currentPlayer = "player2";
-        } else if (currentPlayer == "player2") {
-            currentPlayer = "player1";
+        if (currentPlayer == "player1red") {
+            currentPlayer = "player2green";
+        } else if (currentPlayer == "player2green") {
+            currentPlayer = "player1red";
         }
     }
 
@@ -80,9 +80,16 @@
     }
 
     function victory(player) {
-        alert("Victory!, the winer is ", player);
-        // add message and animation
-        // restart the game - location.reload
-        // currentPlayer = player1
+        $("#overlay").addClass("on");
+        $("#modal_container").addClass("on");
+        $("#modal_container").css({
+            background: player.replace(/player[\d]/g, "") // remove player1/2 text and leave just color from the player name
+        });
     }
+
+    $("#modal_container").on("click", function(e) {
+        e.stopPropagation();
+        $("#modal_container").removeClass("on");
+        location.reload(true);
+    });
 })();
