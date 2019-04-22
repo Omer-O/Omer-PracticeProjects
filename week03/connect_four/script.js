@@ -85,6 +85,9 @@
         $("#modal_container").css({
             background: player.replace(/player[\d]/g, "") // remove player1/2 text and leave just color from the player name
         });
+        setTimeout(function() {
+            $("#message").addClass("on");
+        }, 2500);
     }
 
     $("#modal_container").on("click", function(e) {
