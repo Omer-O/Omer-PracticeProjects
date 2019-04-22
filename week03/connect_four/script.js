@@ -43,13 +43,8 @@
         }
         var slotsInRow = $(".column").find(".row" + i);
 
-        console.log("slots in row: ", slotsInRow);
-        console.log("slots in column: ", slotsInColumn);
-        console.log("slots in diagonal: ", slotsInDiagonal);
-
         // check all diagonal slots
         for (var k = 0; k < slotsInDiagonal.length; k++) {
-            console.log("checking victory for diagonal no", k);
             if (checkForVictory(slotsInDiagonal[k])) {
                 victory(currentPlayer);
                 break;
@@ -72,11 +67,9 @@
 
     function checkForVictory(slots) {
         var count = 0;
-        console.log("number of slots to check: ", slots.length);
         for (var i = 0; i < slots.length; i++) {
             if (slots.eq(i).hasClass(currentPlayer)) {
                 count++;
-                console.log("counter: ", count);
                 if (count == 4) {
                     return true;
                 }
@@ -87,7 +80,7 @@
     }
 
     function victory(player) {
-        console.log("Victory!, the winer is ", player);
+        alert("Victory!, the winer is ", player);
         // add message and animation
         // restart the game - location.reload
         // currentPlayer = player1
