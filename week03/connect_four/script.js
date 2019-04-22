@@ -1,5 +1,4 @@
 // (function() {
-var slot = $(".slot");
 const diagonalsIndex = [
     [0, 7, 14, 21, 28, 35],
     [1, 8, 15, 22, 29],
@@ -19,19 +18,16 @@ var currentPlayer = "player1";
 
 // ----------- ISSUE here, how to convert the array above with diagonals indexes
 //             into seriers of slots which could be passed to checkForVictory function?
-var slotsInDiagonal = {};
+var slotsInDiagonal = [];
+var allSlots = $(".slot");
+console.log("initial value of slotsInDiagonal: ", slotsInDiagonal);
 for (var i = 0; i < diagonalsIndex.length; i++) {
-    slotsInDiagonal[i] = [];
+    slotsInDiagonal[i] = $([]); //en empty jQuery object?
     for (var j = 0; j < diagonalsIndex[i].length; j++) {
-        slotsInDiagonal[i].push(
-            $(".column")
-                .find(".slot")
-                .eq(diagonalsIndex[i][j])
-        );
+        slotsInDiagonal[i].add(allSlots.eq(diagonalsIndex[i][j]));
     }
 }
-
-console.log("slotsInDiagonal : ", slotsInDiagonal);
+// console.log("slotsInDiagonal : ", slotsInDiagonal);
 
 $(".column").on("click", function(e) {
     var slotsInColumn = $(e.currentTarget).find(".slot");
@@ -53,7 +49,7 @@ $(".column").on("click", function(e) {
 
     console.log("slots in row: ", slotsInRow);
     console.log("slots in column: ", slotsInColumn);
-    // console.log("slots in diagonal: ", slotsInDiagonal);
+    console.log("slots in diagonal: ", slotsInDiagonal);
 
     // check diagonal slots
     var fourInDiagonal = false;
@@ -62,9 +58,9 @@ $(".column").on("click", function(e) {
     }
 
     if (
+        fourInDiagonal ||
         checkForVictory(slotsInColumn) ||
-        checkForVictory(slotsInRow) ||
-        fourInDiagonal
+        checkForVictory(slotsInRow)
     ) {
         victory(currentPlayer);
     }
