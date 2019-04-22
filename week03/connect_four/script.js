@@ -1,4 +1,5 @@
 // (function() {
+var currentPlayer = "player1";
 const diagonalsIndex = [
     [0, 7, 14, 21, 28, 35],
     [1, 8, 15, 22, 29],
@@ -14,20 +15,16 @@ const diagonalsIndex = [
     [38, 33, 28, 23]
 ];
 
-var currentPlayer = "player1";
+$.fn.eqAnyOf = function(arrayOfIndexes) {
+    return this.filter(function(i) {
+        return $.inArray(i, arrayOfIndexes) > -1;
+    });
+};
 
-// ----------- ISSUE here, how to convert the array above with diagonals indexes
-//             into seriers of slots which could be passed to checkForVictory function?
 var slotsInDiagonal = [];
-var allSlots = $(".slot");
-console.log("initial value of slotsInDiagonal: ", slotsInDiagonal);
 for (var i = 0; i < diagonalsIndex.length; i++) {
-    slotsInDiagonal[i] = $([]); //en empty jQuery object?
-    for (var j = 0; j < diagonalsIndex[i].length; j++) {
-        slotsInDiagonal[i].add(allSlots.eq(diagonalsIndex[i][j]));
-    }
+    slotsInDiagonal[i] = $(".slot").eqAnyOf(diagonalsIndex[i]);
 }
-// console.log("slotsInDiagonal : ", slotsInDiagonal);
 
 $(".column").on("click", function(e) {
     var slotsInColumn = $(e.currentTarget).find(".slot");
@@ -40,8 +37,7 @@ $(".column").on("click", function(e) {
             break;
         }
     }
-    // gone thru hole loop without breake = column is full
-    // i is the row5
+    // gone thru hole loop without breake = column is full if is the row5
     if (i == -1) {
         return;
     }
@@ -51,17 +47,16 @@ $(".column").on("click", function(e) {
     console.log("slots in column: ", slotsInColumn);
     console.log("slots in diagonal: ", slotsInDiagonal);
 
-    // check diagonal slots
-    var fourInDiagonal = false;
+    // check all diagonal slots
     for (var k = 0; k < slotsInDiagonal.length; k++) {
-        fourInDiagonal = checkForVictory(slotsInDiagonal[k]);
+        console.log("checking victory for diagonal no", k);
+        if (checkForVictory(slotsInDiagonal[k])) {
+            victory(currentPlayer);
+            break;
+        }
     }
 
-    if (
-        fourInDiagonal ||
-        checkForVictory(slotsInColumn) ||
-        checkForVictory(slotsInRow)
-    ) {
+    if (checkForVictory(slotsInColumn) || checkForVictory(slotsInRow)) {
         victory(currentPlayer);
     }
     switchPlayers();
