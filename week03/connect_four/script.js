@@ -19,15 +19,19 @@ var currentPlayer = "player1";
 
 // ----------- ISSUE here, how to convert the array above with diagonals indexes
 //             into seriers of slots which could be passed to checkForVictory function?
-var slotsInDiagonal = new Array(diagonalsIndex.length);
-for (var w = 0; w < diagonalsIndex.length; w++) {
-    slotsInDiagonal[w] = [];
-    for (var m = 0; m < diagonalsIndex[w].length; m++) {
-        slotsInDiagonal[w].push(slot.eq(diagonalsIndex[w][m]));
+var slotsInDiagonal = {};
+for (var i = 0; i < diagonalsIndex.length; i++) {
+    slotsInDiagonal[i] = [];
+    for (var j = 0; j < diagonalsIndex[i].length; j++) {
+        slotsInDiagonal[i].push(
+            $(".column")
+                .find(".slot")
+                .eq(diagonalsIndex[i][j])
+        );
     }
 }
 
-console.log("slotsInDiagonal: ", slotsInDiagonal);
+console.log("slotsInDiagonal : ", slotsInDiagonal);
 
 $(".column").on("click", function(e) {
     var slotsInColumn = $(e.currentTarget).find(".slot");
@@ -49,10 +53,10 @@ $(".column").on("click", function(e) {
 
     console.log("slots in row: ", slotsInRow);
     console.log("slots in column: ", slotsInColumn);
-    console.log("slots in diagonal: ", slotsInDiagonal);
+    // console.log("slots in diagonal: ", slotsInDiagonal);
 
     // check diagonal slots
-    var fourInDiagonal;
+    var fourInDiagonal = false;
     for (var k = 0; k < slotsInDiagonal.length; k++) {
         fourInDiagonal = checkForVictory(slotsInDiagonal[k]);
     }
