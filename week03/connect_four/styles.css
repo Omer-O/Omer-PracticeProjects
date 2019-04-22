@@ -3,7 +3,7 @@
 }
 #container {
     display: flex;
-    /* height: 100vw; */
+    height: 100vw;
     width: 100vw;
     justify-content: center;
     align-items: center;
@@ -50,27 +50,23 @@
 }
 
 #modal_container {
-    position: fixed;
+    position: absolute;
     display: flex;
     width: 200px;
     height: 200px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     border-radius: 50%;
-    /* padding: 20px; */
     z-index: 3;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    vertical-align: middle;
     border: dashed 1px gray;
     visibility: hidden;
     transition: all 2s;
 }
 
 h1 {
+    font-size: 48px;
     color: white;
+    font-family: "Helvetica";
 }
 
 #modal_container.on {
