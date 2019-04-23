@@ -65,12 +65,16 @@
 #modal_container.on {
     visibility: visible;
 }
+#text_container {
+    position: relative;
+}
 
 h1 {
+    text-align: center;
     font-size: 48px;
     color: white;
     font-family: "Helvetica";
-    margin: 0px;
+    margin: 0 auto;
     padding: 0px;
 }
 
@@ -81,7 +85,7 @@ h1 {
     overflow-wrap: break-word;
     text-align: center;
     width: 60%;
-    margin: 0px;
+    margin: 0 auto;
     padding: 0px;
     visibility: hidden;
     transition: all 2s;
