@@ -1,7 +1,5 @@
 (function() {
-    console.log("hi");
     var headlines = document.getElementById("headlines");
-    var resultsContainer = $("#headlines");
     var links = headlines.getElementsByTagName("A"); //number of links
     var left = headlines.offsetLeft;
     var animationId;
@@ -10,15 +8,15 @@
         url: "/data.json",
         method: "GET",
         success: function(data) {
-            console.log("Data received: ", data);
             var resultsHtml = "";
             for (var i = 0; i < data.length; i++) {
                 resultsHtml +=
                     "<a href = '" + data[i].href + "'>" + data[i].text + "</a>";
             }
-            resultsContainer.html(resultsHtml).show();
+            $("#headlines")
+                .html(resultsHtml)
+                .show();
             moveHeadlineLines();
-            console.log("Results html: ", resultsHtml);
         }
     });
 
