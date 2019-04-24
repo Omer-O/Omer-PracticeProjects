@@ -1,15 +1,16 @@
-(function(countries) {
+(function() {
     var resultsContainer = $("#resultsContainer");
 
-    // get the current value of the text field
     $("input").on("input", function() {
         var val = $("input").val();
-
         $.ajax({
             url: "https://flame-egg.glitch.me/",
             method: "GET",
             data: { q: val },
             success: function(data) {
+                if (val != $("input").val()) {
+                    return;
+                }
                 var resultsHtml = "";
                 if (data && data.length) {
                     for (var j = 0; j < data.length; j++) {
