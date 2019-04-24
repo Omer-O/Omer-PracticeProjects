@@ -1,0 +1,33 @@
+body {
+  background: #6ed66e;
+}
+
+header {
+  text-align: center;
+  border: 5px solid black;
+  width: 100%;
+  font-size: 38px;
+}
+#container {
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: column;
+  height: 100%;
+}
+
+.results {
+  display: flex;
+}
+
+img {
+  height: 300px;
+  width: 300px;
+  border-radius: 25%;
+}
+
+.artistsName {
+  font-size: 70px;
+  position: relative;
+  top: 115px;
+  left: 150px;
+}
