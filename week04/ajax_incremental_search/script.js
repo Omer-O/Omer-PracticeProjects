@@ -10,12 +10,14 @@
             method: "GET",
             data: { q: val },
             success: function(data) {
+                var resultsHtml = "";
                 if (data && data.length) {
-                    var resultsHtml = "";
                     for (var j = 0; j < data.length; j++) {
                         resultsHtml +=
                             '<div class="results">' + data[j] + "</div>";
                     }
+                } else if (!val) {
+                    resultsContainer.html(resultsHtml).hide();
                 } else {
                     resultsHtml = '<div class="results">no results</div>';
                 }
