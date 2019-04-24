@@ -1,0 +1,12 @@
+#results {
+    width: 125px;
+}
+.results {
+    width: 125px;
+    border: 1px solid gray;
+}
+
+.highlight {
+    width: 125px;
+    background: yellow;
+}
