@@ -53,4 +53,6 @@
                 "https://upload.wikimedia.org/wikipedia/commons/b/b4/Angelou_at_Clinton_inauguration.jpg"
         }
     ];
+
+    $(".container").html(Handlebars.templates.cards({ arrayData: authors }));
 })();

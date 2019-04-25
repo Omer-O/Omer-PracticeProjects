@@ -1,9 +1,17 @@
-.card {
-    position: absolute;
+.container {
     display: flex;
-    width: 800px;
-    height: 380px;
-    border: 1px solid gray;
+    flex-direction: column;
+    width: 75vw;
+    height: auto;
+    margin: 0 auto;
+}
+
+.card {
+    margin: 20px auto;
+    display: flex;
+    background: lightgray;
+    width: 100%;
+    align-items: center;
 }
 
 .left-pane {
@@ -15,6 +23,8 @@
     width: 70%;
     padding: 20px;
 }
-.authorPhoto {
-    padding: 10px;
+.card img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
 }
