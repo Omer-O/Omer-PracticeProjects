@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Spotify search</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1> Spotify search</h1>
+        <input type = 'text' name = 'user-input'>
+        <select class = "artist-or-album">
+            <option id = 'artist'>artist</option>
+            <option id = 'album'>album</option>
+        </select>
+        <button class = 'submit-button'>submit</button>
+        <div id = 'results-container'></div>
+
+        <!-- card template -->
+        <script id = "cards" type="text/x-handlebars-template">
+        {{#results}}
+        <div class = card>
+            <div class = 'left-pane'>
+                <img src={{posterLink}}>
+            </div>
+            <div class = right-pane>
+                <h1 class = 'name'>{{name}}</h1>
+            </div>
+        </div>
+        {{/results}}
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src = 'script.js'></script>
+    </body>
+</html>
