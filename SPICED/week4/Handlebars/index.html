@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <title>Pokemon</title>
+  </head>
+  <body>
+    <div class="container"></div>
+
+    <script id="cards" type="text/x-handlebars-template">
+        {{#myData}}
+          <div class="card">
+              <img src={{photo}} alt="">
+              <h2>{{name}}</h2>
+
+              <section>
+                  <div class="properties">Born:</div>
+                  <div class="values">
+
+                      <p>{{born}}</p>
+
+                  </div>
+              </section>
+
+              <section>
+                  <div class="properties">Died:</div>
+                  <div class="values">
+
+                      <p>{{died}}</p>
+
+                  </div>
+              </section>
+
+              <section>
+                  <div class="properties">selectedWritings:</div>
+                  <div class="values">
+
+                      {{#selectedWritings}}
+                      <p>{{this}}</p>
+                      {{/selectedWritings}}
+
+                  </div>
+              </section>
+              <section>
+                  <div class="properties">quote:</div>
+                  <div class="values">
+
+                      {{#quote}}
+                      <p>{{this}}</p>
+                      {{/quote}}
+
+                  </div>
+              </section>
+          </div>
+      {{/myData}}
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
