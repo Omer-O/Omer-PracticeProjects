@@ -44,24 +44,10 @@
     function getResults(inputPayload) {
         console.log("payload: ", inputPayload);
         for (var i = 0; i < inputPayload.items.length; i++) {
-            var card = {};
-            if (inputPayload.items[i].images.length > 0) {
-                card.posterLink = inputPayload.items[i].images[0].url;
-            } else {
-                card.posterLink = "assets/spotify_poster.png";
-            }
-            card.name = inputPayload.items[i].name;
-            console.log("posterLink: ");
-            cardsData.push(card);
+            $("#results-container").html(
+                Handlebars.templates.cards({ results: inputPayload.items })
+            );
         }
-
-        console.log("handlerbar data array: ", cardsData);
-        // $("#results-container")
-        //     .html(resultHtml)
-        //     .show();
-        $("#results-container").html(
-            Handlebars.templates.cards({ results: cardsData })
-        );
     }
 })();
 
