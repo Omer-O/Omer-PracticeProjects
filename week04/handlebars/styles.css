@@ -1,0 +1,20 @@
+.card {
+    position: absolute;
+    display: flex;
+    width: 800px;
+    height: 380px;
+    border: 1px solid gray;
+}
+
+.left-pane {
+    width: 30%;
+    padding: 10px;
+}
+
+.right-pane {
+    width: 70%;
+    padding: 20px;
+}
+.authorPhoto {
+    padding: 10px;
+}
