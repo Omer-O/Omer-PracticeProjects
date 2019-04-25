@@ -1,0 +1,41 @@
+body {
+  background: #6ed66e;
+}
+
+header {
+  text-align: center;
+  width: 100%;
+  font-size: 38px;
+  margin-bottom: 50px;
+}
+
+.search-result {
+  /* height: 100px;
+  width: 100%; */
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  flex-flow: wrap;
+  padding: 10px;
+}
+
+.results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  height: 300px;
+  width: 300px;
+  border-radius: 100%;
+}
+
+.artistsName {
+  position: relative;
+  font-size: 30px;
+  text-align: center;
+}
