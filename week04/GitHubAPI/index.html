@@ -7,11 +7,27 @@
     </head>
     <body>
         <h1>github API</1h>
-            <input type="text" name = 'username' placeholder =' username'>
-            <!-- autocomplete off to remove input history -->
-            <input type="password" name="password" value="" placeholder = 'password' autocomplete = 'off'>
-            <input type="text" name = 'user-to-search' placeholder =' search user'>
-            <button class ='submit-button'>go</button>
+        <input type="text" name = 'username' placeholder =' username'>
+        <!-- autocomplete off to remove input history -->
+        <input type="password" name="password" value="" placeholder = 'password' autocomplete = 'off'>
+        <input type="text" name = 'user-to-search' placeholder =' search user'>
+        <button class ='submit-button'>go</button>
+
+        <div id = 'results-container'></div>
+        <!-- card template -->
+        <script id = "cards" type="text/x-handlebars-template">
+        {{#results}}
+        <div class = card>
+            <div class = 'left-pane'>
+                <img src={{owner.avatar_url}}>
+            </div>
+            <div class = right-pane>
+                <h2 class = 'name'>{{full_name}}</h2>
+            </div>
+        </div>
+        {{/results}}
+        </script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src = 'script.js'></script>

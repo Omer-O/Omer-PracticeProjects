@@ -1,0 +1,52 @@
+* {
+    font-family: "Helvetica";
+}
+
+h1 {
+    text-align: center;
+}
+
+.search-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+}
+
+.artist-or-album {
+    margin: 0 10px;
+}
+.search-section h1 {
+    flex-direction: column;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+    height: auto;
+    margin: 0 auto;
+}
+
+.card {
+    margin: 20px auto;
+    display: flex;
+    border-radius: 5px;
+    background: lightgray;
+    width: 80%;
+    align-items: center;
+}
+
+.left-pane {
+    width: 30%;
+    padding: 10px;
+}
+
+.right-pane {
+    width: 70%;
+    padding: 20px;
+}
+.card img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+}
