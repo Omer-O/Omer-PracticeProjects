@@ -42,12 +42,13 @@
     }
 
     function getResults(inputPayload) {
-        console.log("payload: ", inputPayload);
-        for (var i = 0; i < inputPayload.items.length; i++) {
-            $("#results-container").html(
-                Handlebars.templates.cards({ results: inputPayload.items })
-            );
-        }
+        console.log(inputPayload);
+        //check for existing cover cover = cover || defaultcover
+        // for (var i = 0; i < inputPayload.items.length; i++) {
+        $("#results-container").html(
+            Handlebars.templates.cards({ results: inputPayload.items })
+        );
+        // }
     }
 })();
 
