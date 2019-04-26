@@ -25,6 +25,22 @@
     for (var i = 0; i < diagonalsIndex.length; i++) {
         slotsInDiagonal[i] = $(".slot").eqAnyOf(diagonalsIndex[i]);
     }
+    // Davids solution
+    //     var slots = $('.slot');
+    //     diags = diags.map(function(arr) {
+    // var elems = slots.eq(arr.shift());
+    // while (arr.length) {
+    //         elems = elems.add(slots.eq(arr.shift()));
+    //     }
+    // return elems;
+    // });
+    // function checkForDiagonalVictory() {
+    // for (var i = 0; i < diags.length; i++) {
+    // if (checkForVictory(diags[i])) {
+    // return true;
+    //         }
+    //     }
+    // }
 
     $(".column").on("click", function(e) {
         e.stopPropagation();
