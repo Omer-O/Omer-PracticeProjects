@@ -7,7 +7,7 @@ const rl = readline.createInterface({
 });
 
 function ask(obj) {
-    rl.question(chalk.red(obj.q), answer => {
+    rl.question(chalk.green(obj.q), answer => {
         if (obj.a[answer]) {
             if (typeof obj.a[answer] == "object") {
                 ask(obj.a[answer]);
@@ -19,8 +19,8 @@ function ask(obj) {
                 rl.close();
             }
         } else {
-            console.log("wrong answer, try again");
-            ask(obj.a[answer]);
+            console.log(chalk.red("wrong answer, try again"));
+            ask(obj);
         }
     });
 }
