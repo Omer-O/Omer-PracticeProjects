@@ -1,9 +1,9 @@
 const url = require("url");
 const querystring = require("querystring");
 
-var input = process.argv[2];
-var parseResults = url.parse(input);
-var queryValues = querystring.parse(parseResults.query);
+const input = process.argv[2];
+const parseResults = url.parse(input);
+const queryValues = querystring.parse(parseResults.query);
 
 console.log("The protocol is ", parseResults.protocol);
 console.log("The host is ", parseResults.host);
