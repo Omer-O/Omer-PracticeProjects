@@ -1,0 +1,19 @@
+{
+    "q": "Good morning kids would you like vegetables for breakfast?",
+    "answers": {
+        "yes": {
+            "q": "That was a surprise, was not excepting that. Are you sure you want vegetables?",
+            "answers": {
+                "yes": {
+                    "q": "Now, listen carefully, do you still think you want those vegetables?",
+                    "answers": {
+                        "yes": "congratulations you get Pancake!"
+                    },
+                    "no": "I want pancake, than pancake it is!"
+                },
+                "no": "Ok fair enough. So Pancake it is!"
+            }
+        },
+        "no": "Ok. fair enough. So Pancake it is!"
+    }
+};
