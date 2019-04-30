@@ -13,9 +13,9 @@ function logSizes(givenPath) {
             process.exit();
         }
         if (files) {
-            for (var item in files) {
-                const fullPath = givenPath + "/" + files[item].name;
-                if (files[item].isFile()) {
+            files.forEach(item => {
+                const fullPath = givenPath + "/" + item.name;
+                if (item.isFile()) {
                     fs.stat(fullPath, (err, fileStat) => {
                         if (err) {
                             console.log(err);
@@ -27,7 +27,7 @@ function logSizes(givenPath) {
                 } else {
                     logSizes(fullPath);
                 }
-            }
+            });
         }
     });
 }
