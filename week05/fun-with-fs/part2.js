@@ -6,19 +6,19 @@ if (!input) {
 }
 
 function mapSizes(direcotryFullPath) {
-    var Obj = {};
+    var obj = {};
     const myFiles = fs.readdirSync(direcotryFullPath, { withFileTypes: true });
     if (myFiles) {
-        for (var item in myFiles) {
-            const fullPath = direcotryFullPath + "/" + myFiles[item].name;
-            if (myFiles[item].isFile()) {
-                Obj[myFiles[item].name] = fs.statSync(fullPath).size;
+        myFiles.forEach(item => {
+            const fullPath = direcotryFullPath + "/" + item.name;
+            if (item.isFile()) {
+                obj[item.name] = fs.statSync(fullPath).size;
             } else {
-                Obj[myFiles[item].name] = mapSizes(fullPath);
+                obj[item.name] = mapSizes(fullPath);
             }
-        }
+        });
     }
-    return Obj;
+    return obj;
 }
 
 fs.writeFileSync(
