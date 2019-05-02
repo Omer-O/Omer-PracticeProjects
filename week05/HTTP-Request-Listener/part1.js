@@ -1,7 +1,6 @@
 const http = require("http");
 
 const server = http.createServer(function(request, response) {
-    console.log(request);
     request.on("error", err => {
         console.log("err: ", err);
         process.exit();
@@ -10,8 +9,6 @@ const server = http.createServer(function(request, response) {
         console.log("err: ", err);
         process.exit();
     });
-
-    console.log(`request received: ${request.method}, ${request.url}`);
 
     if (request.method == "GET" || request.method == "HEAD") {
         response.setHeader("content-type", "text/html");
@@ -27,19 +24,16 @@ const server = http.createServer(function(request, response) {
         }
         response.end("");
     } else if (request.method == "POST") {
-        console.log("post request");
+        console.log("methond POST received!");
         let data = "";
         request.on("data", chunk => {
             data += chunk;
-            console.log(chunk);
-            // to be finshed
-            response.setHeader("content-type", "text/html");
         });
         request.on("end", () => {
-            console.log(data);
-            response.statusCode = 200;
+            console.log("post data: ", data);
+            response.setHeader("Location", "/");
+            response.statusCode = 302;
             response.end();
-            return;
         });
     } else {
         response.statusCode = 405;
