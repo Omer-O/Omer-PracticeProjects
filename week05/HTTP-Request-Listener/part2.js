@@ -17,9 +17,9 @@ const server = http.createServer(function(request, response) {
     responseArr.join("\t");
     responseArr.push("\n");
 
-    fs.appendFile(__dirname + "/requests-log.text", responseArr, err => {
+    fs.appendFile(__dirname + "/requests-log.txt", responseArr, err => {
         if (err) throw err;
-        console.log('The "data to append" was appended to file!');
+        console.log(`The ${responseArr} was appended to file!`);
     });
 });
 
