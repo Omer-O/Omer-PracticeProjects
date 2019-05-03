@@ -1,6 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const htmlContent = require("./part2.js").generateHtml;
 
 const contentType = {
     ".html": "text/html",
@@ -17,6 +18,11 @@ http.createServer((req, res) => {
     if (req.method != "GET") {
         res.statusCode = 405;
         res.end();
+        return;
+    }
+
+    if (req.url == "/") {
+        res.end(htmlContent());
         return;
     }
 
