@@ -1,7 +1,6 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-const querystring = require("querystring");
 
 const contentType = {
     ".html": "text/html",
@@ -48,7 +47,7 @@ http.createServer((req, res) => {
                 "content-type",
                 contentType[path.extname(fullPathUrl)]
             );
-            var readStream = fs.createReadStream(fullPathUrl);
+            const readStream = fs.createReadStream(fullPathUrl);
             readStream.pipe(res);
             readStream.on("error", err => {
                 console.log(err);
