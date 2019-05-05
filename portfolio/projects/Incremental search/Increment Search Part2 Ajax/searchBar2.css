@@ -1,0 +1,10 @@
+
+.search {
+    border: 1px black solid;
+    position: absolute;
+    width: 175px;
+}
+.heighlighted {
+    background: yellow;
+
+}
