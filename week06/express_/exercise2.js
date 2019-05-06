@@ -2,6 +2,20 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const basicAuth = require("basic-auth");
+
+var auth = function(req, res, next) {
+    var creds = basicAuth(req);
+    if (!creds || creds.name != "discoduck" || creds.pass != "opensesame") {
+        res.setHeader(
+            "WWW-Authenticate",
+            'Basic realm="Enter your credentials to see this stuff."'
+        );
+        res.sendStatus(401);
+    } else {
+        next();
+    }
+};
 
 app.use(cookieParser());
 
@@ -20,6 +34,7 @@ app.use(function(req, res, next) {
     } else next();
 });
 
+app.use("/carousel", auth);
 app.use(express.static("./projects"));
 
 app.get("/cookie", (req, res) => {
