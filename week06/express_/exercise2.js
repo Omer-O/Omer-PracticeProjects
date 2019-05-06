@@ -12,23 +12,21 @@ app.use(
 );
 
 app.use(function(req, res, next) {
-    console.log(`HELLO! the url is : ${req.url}`);
-    if (!req.cookies.accept && req.url != "/cookies") {
-        console.log("no cookies, redirecting...");
+    if (!req.cookies.accept && req.url != "/cookie") {
         if (!req.cookies.url) {
             res.cookie("url", req.url);
         }
-        res.redirect("/cookies");
+        res.redirect("/cookie");
     } else next();
 });
 
 app.use(express.static("./projects"));
 
-app.get("/cookies", (req, res) => {
+app.get("/cookie", (req, res) => {
     res.send(`
         <!doctype html>
         <title>Cookie time!</title>
-        <h1>Cookie?</h1>
+        <h1>Do you like cookies?</h1>
         <form method = "POST">
         <input type = "checkbox" name = "accept"> I accept your cookies
         <button>Submit</button>
@@ -36,15 +34,12 @@ app.get("/cookies", (req, res) => {
         `);
 });
 
-app.post("/cookies", (req, res, next) => {
-    console.log("cookie form received");
+app.post("/cookie", (req, res, next) => {
     if (req.body.accept) {
-        console.log("cookie accepted");
         res.cookie("accept", "yes");
-        console.log("cookie stored");
         res.redirect(req.cookies.url);
     } else {
-        res.redirect("/cookies");
+        res.redirect("/cookie");
     }
 });
 
