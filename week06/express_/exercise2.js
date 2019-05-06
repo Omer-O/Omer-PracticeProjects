@@ -27,6 +27,7 @@ app.get("/cookie", (req, res) => {
         <!doctype html>
         <title>Cookie time!</title>
         <h1>Do you like cookies?</h1>
+        <p>You must accept cookies to access the contnet!</p>
         <form method = "POST">
         <input type = "checkbox" name = "accept"> I accept your cookies
         <button>Submit</button>
