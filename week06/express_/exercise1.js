@@ -11,4 +11,4 @@ app.get("*", (req, res) => {
         `);
 });
 
-app.listen(8080, () => console.log("Exercise 2 server is listeining"));
+app.listen(8080, () => console.log("Exercise 1 server is listeining"));
