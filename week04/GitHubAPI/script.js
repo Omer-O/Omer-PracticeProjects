@@ -30,8 +30,8 @@
         });
     });
 
-    $(".card").on("click", function(e) {
-        console.log("clicked on card", e);
+    $(document).on("click", "div.card", function(e) {
+        // - https://gist.github.com/friedmandavid/82dd67fc50b5ec44ae26c7a8b6f2a78f
     });
 
     function getResults(inputPayload) {
