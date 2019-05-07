@@ -21,14 +21,27 @@ app.get("/", (req, res) => {
 });
 
 app.get("/:name/description", (req, res) => {
-    const description = require(`${__dirname}/projects/${
-        req.params.name
-    }/description.json`);
-    res.render("description", {
-        layout: "main",
-        projectName: description.name,
-        projectDescription: description.description
+    let projectsList = fs.readdirSync(__dirname + "/projects");
+    console.log("project list: ", projectsList);
+    console.log(":name", req.params.name);
+    let projectFound = false;
+    projectsList.forEach(item => {
+        if (item == req.params.name) {
+            projectFound = true;
+        }
     });
+    if (projectFound) {
+        const description = require(`${__dirname}/projects/${
+            req.params.name
+        }/description.json`);
+        res.render("description", {
+            layout: "main",
+            projectName: description.name,
+            projectDescription: description.description
+        });
+    } else {
+        res.sendStatus(404);
+    }
 });
 
 app.listen(8080, () => {
