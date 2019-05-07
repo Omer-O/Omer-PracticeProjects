@@ -1,0 +1,50 @@
+body {
+    background: #6ed66e;
+    font-family: Circular, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #222326;
+    text-align: -webkit-center;
+}
+
+header {
+    position: fixed;
+    background-color: #877f7fb5;
+    width: 100%;
+    z-index: 1;
+}
+
+input[type=text] {
+    font-family: Circular, Helvetica, Arial, sans-serif;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+}
+
+#container {
+    display: flex;
+    position: absolute;
+    top: 150px;
+    justify-content: center;
+    justify-content: space-around;
+    flex-flow: wrap;
+    padding: 10px;
+}
+
+.results {
+    vertical-align: top;
+    display: inline-block;
+    width: 400px;
+    align-items: center;
+}
+
+img {
+  height: 220px;
+  width: 220px;
+  border-radius: 100%;
+}
+
+.artistsName {
+    display: block;
+    font-size: 25px;
+}

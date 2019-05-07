@@ -1,0 +1,19 @@
+
+<div class="partial">
+    <h3>Projects</h3>
+    <!-- now we want to make a dinamicaly nav bar  -->
+    <ul>
+        <li>
+            <a href="/">home</a>
+        </li>
+        {{#projects}}
+            <li>
+                <a href="/{{.}}/description">{{.}}</a>
+            </li>
+        {{/projects}}
+        <li>
+            <a href="/about">about</a>
+        </li>
+
+    </ul>
+</div>

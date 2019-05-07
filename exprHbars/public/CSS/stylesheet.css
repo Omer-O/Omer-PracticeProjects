@@ -1,0 +1,38 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+a {
+text-decoration: none;
+}
+
+li {
+list-style-type: none;
+}
+
+ul {
+    display: contents;
+    align-self: ;
+}
+
+.main {
+    border: solid 5px red;
+    background: antiquewhite;
+    text-align: center;
+}
+
+.view {
+    border: solid 5px green;
+    margin: 8px;
+    padding: 8px;
+}
+
+.partial {
+    display: flex;
+    justify-content: space-around;
+    margin: 8px;
+    padding: 8px;
+    /* list-style-type: none;
+    display: contents;
+    align-self: ; */
+}
