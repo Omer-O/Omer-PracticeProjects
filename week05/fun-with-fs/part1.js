@@ -12,6 +12,8 @@ function logSizes(givenPath) {
             console.log(err);
             process.exit();
         }
+        console.log("list: ", files);
+
         if (files) {
             files.forEach(item => {
                 const fullPath = givenPath + "/" + item.name;
