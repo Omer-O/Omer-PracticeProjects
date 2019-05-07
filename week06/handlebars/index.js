@@ -1,5 +1,6 @@
 const express = require("express");
 const hb = require("express-handlebars");
+var fs = require("fs");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
         layout: "main"
         // quotes: futuramaData
     });
+    console.log("files list: ", generateProjectList());
 });
 
 app.get("/about", (req, res) => {
@@ -36,3 +38,14 @@ app.get("/:name", (req, res) => {
 app.listen(8080, () => {
     console.log("Server is running. Handlebars in use!!!");
 });
+
+function generateProjectList() {
+    let list = fs.readdirSync(__dirname + "/projects", { withFileTypes: true });
+    var projectList = [];
+    list.forEach(item => {
+        if (!item.isFile()) {
+            projectList.push(item.name);
+        }
+    });
+    return projectList;
+}
