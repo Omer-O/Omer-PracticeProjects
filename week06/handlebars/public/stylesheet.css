@@ -23,9 +23,28 @@ body {
 }
 
 .partial {
-    /* border: 5px solid blue;
-    margin: 8px;
-    padding: 8px; */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+}
+
+.partial ul {
+    display: flex;
+}
+
+.partial li {
+    padding: 0 10px;
+    list-style: none;
+    text-decoration: none;
+}
+
+.partial h3 {
+    font-weight: lighter;
 }
 
 .welcome {
