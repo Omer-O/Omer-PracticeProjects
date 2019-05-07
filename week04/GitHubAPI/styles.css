@@ -32,9 +32,11 @@ h1 {
     margin: 20px auto;
     display: flex;
     border-radius: 5px;
-    background: lightgray;
+    border: 1px solid lightgray;
+    /* background: lightgray; */
     width: 80%;
     align-items: center;
+    cursor: pointer;
 }
 
 .left-pane {
