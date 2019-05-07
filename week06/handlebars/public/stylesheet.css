@@ -1,5 +1,5 @@
 * {
-    background-color: orange;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 body {
     box-sizing: border-box;
@@ -7,19 +7,45 @@ body {
 }
 
 .layout {
-    border: 5px solid red;
+    /* border: 5px solid red;
     margin: 8px;
-    padding: 8px;
+    padding: 8px; */
 }
 
 .view {
-    border: 5px solid green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    /* border: 5px solid green;
     margin: 8px;
-    padding: 8px;
+    padding: 8px; */
 }
 
 .partial {
-    border: 5px solid blue;
+    /* border: 5px solid blue;
     margin: 8px;
-    padding: 8px;
+    padding: 8px; */
+}
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 40%;
+    padding: 10px;
+}
+.welcome h1 {
+    font-weight: lighter;
+}
+
+.welcome h2 {
+    font-weight: lighter;
+}
+
+.welcome a {
+    font-size: 20px;
+    font-weight: normal;
 }
