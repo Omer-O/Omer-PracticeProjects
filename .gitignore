@@ -1,5 +1,4 @@
 .DS_Store
-node_modules
 day5/playground.js
 day5/stick_figure.css
 day5/stick_figure.html
@@ -8,7 +7,16 @@ wk2_dy1_dom/script.js
 wk2_dy1_dom/styles.css
 wk2_dy2_dom_game
 wk2_dy2_dom_events/class
-week02/flexbox/flexbox_encounter
+node_modules/
+package-lock.json
+package.json
+projects/
 week03/jquery_encounter
-template/
 week03/connect_four/connect4notes.md
+week05/cli_game/story.json
+week05/fun-with-fs/files
+week05/nodeModules/myModule.js
+week06/basic-authtentication
+week06/express_/funky.html
+encounter/
+week06/habndlebars/public
