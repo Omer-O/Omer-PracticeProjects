@@ -11,24 +11,18 @@ app.use(express.static("projects"));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-    console.log("made it to the slash route");
-    res.render("home", {
-        layout: "main"
-        // quotes: futuramaData
+    let projectsList = fs.readdirSync(__dirname + "/projects", {
+        withFileTypes: true
     });
-    console.log("files list: ", generateProjectList());
-});
-
-app.get("/about", (req, res) => {
-    console.log("made it to the about route");
-    res.render("about", {
-        layout: "main"
+    res.render("welcome", {
+        layout: "main",
+        projects: projectsList
     });
 });
 
 app.get("/:name", (req, res) => {
     console.log("req.params: ", req.params.name);
-    res.render("characters", {
+    res.render("project", {
         layout: "main",
         imgName: req.params.name
         // quotes: futuramaData
@@ -38,14 +32,3 @@ app.get("/:name", (req, res) => {
 app.listen(8080, () => {
     console.log("Server is running. Handlebars in use!!!");
 });
-
-function generateProjectList() {
-    let list = fs.readdirSync(__dirname + "/projects", { withFileTypes: true });
-    var projectList = [];
-    list.forEach(item => {
-        if (!item.isFile()) {
-            projectList.push(item.name);
-        }
-    });
-    return projectList;
-}
