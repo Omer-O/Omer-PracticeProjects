@@ -36,9 +36,7 @@ app.get("/:name/description", (req, res) => {
             console.log(err);
             return;
         }
-
         files.forEach(item => {
-            console.log("item: ", item);
             if (item == name) {
                 projectFound = true;
             }
@@ -50,6 +48,7 @@ app.get("/:name/description", (req, res) => {
             }/description.json`);
             res.render("description", {
                 layout: "main",
+                projectsAll: files,
                 projectName: description.name,
                 projectDescription: description.description
             });
