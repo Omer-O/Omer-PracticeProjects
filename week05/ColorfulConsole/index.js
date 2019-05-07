@@ -40,7 +40,7 @@ http.createServer((request, response) => {
         request.on("data", chunk => {
             data += chunk;
         });
-        request.on("end", received => {
+        request.on("end", () => {
             const queryVars = querystring.parse(data);
             console.log(chalk[queryVars.color](queryVars.text));
             response.setHeader("content-type", "text/html");
@@ -48,8 +48,8 @@ http.createServer((request, response) => {
             response.write(`
                 <!doctype html>
                 <html>
-                <title>${queryVars.text}</title>
-                <a href="/" style="color:${queryVars.color}">${
+                    <title>${queryVars.text}</title>
+                    <a href="/" style="color:${queryVars.color}">${
                 queryVars.text
             }</a>
                 </html>
