@@ -1,0 +1,25 @@
+* {
+    background-color: orange;
+}
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.layout {
+    border: 5px solid red;
+    margin: 8px;
+    padding: 8px;
+}
+
+.view {
+    border: 5px solid green;
+    margin: 8px;
+    padding: 8px;
+}
+
+.partial {
+    border: 5px solid blue;
+    margin: 8px;
+    padding: 8px;
+}

@@ -1,0 +1,11 @@
+<div class="view">
+    <h1>My Futurama fansite</h1>
+    {{#quotes}}
+        <h2>{{character}}</h2>
+        <ul>
+            {{#quotes}}
+                <li>{{.}}</li>
+            {{/quotes}}
+        </ul>
+    {{/quotes}}
+</div>
