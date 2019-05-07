@@ -20,12 +20,14 @@ app.get("/", (req, res) => {
     });
 });
 
-app.get("/:name", (req, res) => {
-    console.log("req.params: ", req.params.name);
-    res.render("project", {
+app.get("/:name/description", (req, res) => {
+    const description = require(`${__dirname}/projects/${
+        req.params.name
+    }/description.json`);
+    res.render("description", {
         layout: "main",
-        imgName: req.params.name
-        // quotes: futuramaData
+        projectName: description.name,
+        projectDescription: description.description
     });
 });
 
