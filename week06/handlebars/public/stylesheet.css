@@ -32,9 +32,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     border: 1px solid gray;
     border-radius: 10px;
-    width: 40%;
+    width: 60%;
     padding: 10px;
 }
 .welcome h1 {
@@ -50,7 +51,11 @@ body {
     font-weight: normal;
 }
 
+.view {
+    width: 50%;
+}
+
 img {
-    width: 200px;
+    width: 80%;
     object-fit: cover;
 }
