@@ -1,9 +1,10 @@
-<div class="partial">
-    <h3>My Nav Bar</h3>
-    <ul>
-        <li><a href="/">Home</a></li>
-        {{#quotes}}
-            <li><a href="/{{character}}"> {{ character }}</a></li>
-        {{/quotes}}
-    </ul>
+<div class="navigation">
+    <div class="partial">
+        <h3>Other projects: </h3>
+        <ul>
+            {{#projectsAll}}
+                <li><a href="/{{.}}/description">{{.}}</a></li>
+            {{/projectsAll}}
+        </ul>
+    </div>
 </div>
