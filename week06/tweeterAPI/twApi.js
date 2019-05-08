@@ -45,7 +45,7 @@ exports.getTweets = function(token, callback) {
         host: "api.twitter.com",
         port: 443,
         path:
-            "/1.1/statuses/user_timeline.json?screen_name=theonion&tweet_mode=extended&count=2",
+            "/1.1/statuses/user_timeline.json?screen_name=theonion&tweet_mode=extended",
         method: "GET",
         headers: {
             authorization: `Bearer ${token}`
