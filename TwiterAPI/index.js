@@ -19,7 +19,7 @@ app.get('/data.json', (req, res) => {
                         return tweet.entities.urls && tweet.entities.urls.length == 1;
                     }).map (item => {
                             return {
-                                text: item.full_text,
+                                text: item.full_text.split(" http", 1),
                                 href: item.entities.urls[0].url
                             }
                         }
