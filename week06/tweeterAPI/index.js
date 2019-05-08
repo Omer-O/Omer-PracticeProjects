@@ -9,7 +9,6 @@ app.get("/data.json", (req, res) => {
         if (err) {
             res.sendStatus(500);
         } else {
-            console.log("received token: ", token);
             twApi.getTweets(token, function(err, tweets) {
                 if (err) {
                     res.sendStatus(500);
@@ -28,8 +27,17 @@ function filterTweets(input) {
             return item.entities.urls && item.entities.urls.length == 1;
         })
         .map(item => {
+            // --- removing links ----
+            let text = item.full_text;
+            if (item.entities.media) {
+                for (var i = 0; i < item.entities.media.length; i++) {
+                    text = text.split(item.entities.media[i].url).join("");
+                }
+            }
+            text = text.split(item.entities.urls[0].url).join("");
+            // ----------------------
             return {
-                text: item.full_text,
+                text: text.trim(),
                 href: item.entities.urls[0].url
             };
         });
