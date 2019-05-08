@@ -25,5 +25,5 @@ week06/express_/projects
 week06/handlebars/projects/*/*.*
 week06/handlebars/projects/carousel/assets
 !week06/handlebars/projects/**/description.json
-week06/twetterAPI/public
-week06/twetterAPI/twetter_credentials.json
+week06/tweeterAPI/public
+week06/tweeterAPI/twetter_credentials.json
