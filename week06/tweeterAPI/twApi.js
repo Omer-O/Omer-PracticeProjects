@@ -39,8 +39,6 @@ exports.getToken = function(callback) {
     req.end();
 };
 exports.getTweets = function(token, callback) {
-    console.log("passed token: ", token);
-
     const options = {
         host: "api.twitter.com",
         port: 443,
