@@ -38,7 +38,6 @@ exports.getToken = function(callback) {
     req.write("grant_type=client_credentials");
     req.end();
 };
-
 exports.getTweets = function(token, callback) {
     console.log("passed token: ", token);
 
@@ -46,7 +45,7 @@ exports.getTweets = function(token, callback) {
         host: "api.twitter.com",
         port: 443,
         path:
-            "/1.1/statuses/user_timeline.json?screen_name=theonion&tweet_mode=extended",
+            "/1.1/statuses/user_timeline.json?screen_name=theonion&tweet_mode=extended&count=2",
         method: "GET",
         headers: {
             authorization: `Bearer ${token}`
@@ -54,16 +53,19 @@ exports.getTweets = function(token, callback) {
     };
 
     const req = https.request(options, res => {
-        console.log("statusCode:", res.statusCode);
-        console.log("headers:", res.headers);
-        let body = "";
-        res.on("data", chunk => (body += chunk)).on("end", () => {
-            try {
-                console.log("body:", body);
-            } catch (err) {
-                callback(err);
-            }
-        });
+        if (res.statusCode != 200) {
+            callback(new Error(res.statusCode));
+        } else {
+            let body = "";
+            res.on("data", chunk => (body += chunk)).on("end", () => {
+                try {
+                    body = JSON.parse(body);
+                    callback(null, body);
+                } catch (err) {
+                    callback(err);
+                }
+            });
+        }
     }); //end of https req
 
     req.on("error", e => {
