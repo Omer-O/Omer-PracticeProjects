@@ -7,9 +7,6 @@ body {
 }
 
 .layout {
-    /* border: 5px solid red;
-    margin: 8px;
-    padding: 8px; */
 }
 
 .view {
@@ -17,9 +14,6 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 20px auto;
-    /* border: 5px solid green;
-    margin: 8px;
-    padding: 8px; */
 }
 
 .partial {
@@ -31,6 +25,10 @@ body {
 .navigation {
     display: flex;
     justify-content: center;
+    background: lightgray;
+    width: 50%;
+    margin: 20px auto;
+    border-radius: 10px;
 }
 
 .partial ul {
