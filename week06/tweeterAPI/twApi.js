@@ -1,8 +1,7 @@
 const https = require("https");
 const { consumerKey, consumerSecret } = require("./twetter_credentials");
-const util = require("util");
 
-const getToken = function(callback) {
+exports.getToken = function(callback) {
     const encoded = Buffer.from(`${consumerKey}:${consumerSecret}`).toString(
         "base64"
     );
@@ -41,9 +40,7 @@ const getToken = function(callback) {
     req.end();
 };
 
-exports.token = util.promisify(getToken);
-
-const getTweets = function(token, screenName, callback) {
+exports.getTweets = function(token, screenName, callback) {
     const options = {
         host: "api.twitter.com",
         port: 443,
@@ -75,5 +72,3 @@ const getTweets = function(token, screenName, callback) {
     });
     req.end();
 }; // end of getTweets fn
-
-exports.tweets = util.promisify(getTweets);

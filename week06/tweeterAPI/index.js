@@ -1,16 +1,20 @@
 const express = require("express");
 const app = express();
 const twApi = require("./twApi");
+const util = require("util");
+
+const getToken = util.promisify(twApi.getToken);
+const getTweets = util.promisify(twApi.getTweets);
 
 app.use(express.static("./public"));
 
 app.get("/data.json", (req, res) => {
-    twApi.token().then(token => {
+    getToken().then(token => {
         // console.log("checking if the fn is a promise:", tweets());
         Promise.all([
-            twApi.tweets(token, "nytimes"),
-            twApi.tweets(token, "bbcworld"),
-            twApi.tweets(token, "theonion")
+            getTweets(token, "nytimes"),
+            getTweets(token, "bbcworld"),
+            getTweets(token, "theonion")
         ])
             .then(tweets => {
                 // console.log(tweets);
