@@ -7,13 +7,13 @@ app.use(express.static("./public"));
 app.get("/data.json", (req, res) => {
     twApi
         .token()
-        .then(function(token) {
-            return twApi.tweets(token);
+        .then(token => {
+            return twApi.tweets(token, "theonion");
         })
-        .then(function(tweets) {
+        .then(tweets => {
             res.json(filterTweets(tweets));
         })
-        .catch(function(err) {
+        .catch(err => {
             res.sendStatus(500);
         });
 });
