@@ -17,9 +17,10 @@ app.get("/data.json", (req, res) => {
                 let nytimes = tweets[0];
                 let bbcworld = tweets[1];
                 let theonion = tweets[2];
-                let margedArrTweets = nytimes.concat(theonion, bbcworld);
-                // filterTweets
-                res.json(filterTweets(margedArrTweets));
+                let margedTweets = nytimes.concat(theonion, bbcworld);
+                let filteredTweets = filterTweets(margedTweets);
+                let sortedTweets = sortTweets(filteredTweets);
+                res.json(sortedTweets);
             })
             .catch(err => {
                 res.sendStatus(500);
@@ -45,10 +46,20 @@ function filterTweets(input) {
             // ----------------------
             return {
                 text: text.trim(),
-                href: item.entities.urls[0].url
+                href: item.entities.urls[0].url,
+                date: item.created_at
             };
         });
     return filteredTweets;
+}
+
+function sortTweets(tweets) {
+    return tweets.sort(function compare(a, b) {
+        var dateA = new Date(a.date).getTime();
+        var dateB = new Date(b.date).getTime();
+        // console.log("date diff: ", dateA - dateB);
+        return dateA - dateB;
+    });
 }
 //---------------------------------------------------------------
 
