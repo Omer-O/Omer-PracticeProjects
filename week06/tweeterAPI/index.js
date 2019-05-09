@@ -17,7 +17,6 @@ app.get("/data.json", (req, res) => {
             getTweets(token, "theonion")
         ])
             .then(tweets => {
-                // console.log(tweets);
                 let nytimes = tweets[0];
                 let bbcworld = tweets[1];
                 let theonion = tweets[2];
@@ -40,7 +39,7 @@ function filterTweets(input) {
         })
         .map(item => {
             // --- removing links ----
-            let text = item.full_text;
+            let text = item.full_text + " (" + item.user.name + ")";
             if (item.entities.media) {
                 for (var i = 0; i < item.entities.media.length; i++) {
                     text = text.split(item.entities.media[i].url).join("");
