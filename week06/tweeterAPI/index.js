@@ -5,17 +5,26 @@ const twApi = require("./twApi");
 app.use(express.static("./public"));
 
 app.get("/data.json", (req, res) => {
-    twApi
-        .token()
-        .then(token => {
-            return twApi.tweets(token, "theonion");
-        })
-        .then(tweets => {
-            res.json(filterTweets(tweets));
-        })
-        .catch(err => {
-            res.sendStatus(500);
-        });
+    twApi.token().then(token => {
+        // console.log("checking if the fn is a promise:", tweets());
+        Promise.all([
+            twApi.tweets(token, "nytimes"),
+            twApi.tweets(token, "bbcworld"),
+            twApi.tweets(token, "theonion")
+        ])
+            .then(tweets => {
+                // console.log(tweets);
+                let nytimes = tweets[0];
+                let bbcworld = tweets[1];
+                let theonion = tweets[2];
+                let margedArrTweets = nytimes.concat(theonion, bbcworld);
+                // filterTweets
+                res.json(filterTweets(margedArrTweets));
+            })
+            .catch(err => {
+                res.sendStatus(500);
+            });
+    });
 });
 
 //---------------------------------------------------------------
