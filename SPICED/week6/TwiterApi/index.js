@@ -20,6 +20,7 @@ app.get('/data.json', (req, res) => {
                  var sorted = filterList.sort(function sortDate(a, b) {
                     return b.date < a.date ?  1 : b.date > a.date ? -1 : 0;
                 });
+                 sorted.reverse();
                  res.json(sorted);
          }).catch(err => {
              res.sendStatus(500);
