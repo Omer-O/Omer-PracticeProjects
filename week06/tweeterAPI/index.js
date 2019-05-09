@@ -18,22 +18,6 @@ app.get("/data.json", (req, res) => {
         });
 });
 
-// app.get("/data.json", (req, res) => {
-//     twApi.getToken(function(err, token) {
-//         if (err) {
-//             res.sendStatus(500);
-//         } else {
-//             twApi.getTweets(token, function(err, tweets) {
-//                 if (err) {
-//                     res.sendStatus(500);
-//                 } else {
-//                     tweets = filterTweets(tweets);
-//                     res.json(tweets);
-//                 }
-//             });
-//         }
-//     });
-// });
 //---------------------------------------------------------------
 function filterTweets(input) {
     const filteredTweets = input
