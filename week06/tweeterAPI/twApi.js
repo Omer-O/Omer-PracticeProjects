@@ -43,12 +43,11 @@ const getToken = function(callback) {
 
 exports.token = util.promisify(getToken);
 
-const getTweets = function(token, callback) {
+const getTweets = function(token, screenName, callback) {
     const options = {
         host: "api.twitter.com",
         port: 443,
-        path:
-            "/1.1/statuses/user_timeline.json?screen_name=theonion&tweet_mode=extended",
+        path: `/1.1/statuses/user_timeline.json?screen_name=${screenName}&tweet_mode=extended`,
         method: "GET",
         headers: {
             authorization: `Bearer ${token}`
