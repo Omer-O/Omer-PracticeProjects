@@ -5,21 +5,35 @@ const twApi = require("./twApi");
 app.use(express.static("./public"));
 
 app.get("/data.json", (req, res) => {
-    twApi.getToken(function(err, token) {
-        if (err) {
+    twApi
+        .token()
+        .then(function(token) {
+            return twApi.tweets(token);
+        })
+        .then(function(tweets) {
+            res.json(filterTweets(tweets));
+        })
+        .catch(function(err) {
             res.sendStatus(500);
-        } else {
-            twApi.getTweets(token, function(err, tweets) {
-                if (err) {
-                    res.sendStatus(500);
-                } else {
-                    tweets = filterTweets(tweets);
-                    res.json(tweets);
-                }
-            });
-        }
-    });
+        });
 });
+
+// app.get("/data.json", (req, res) => {
+//     twApi.getToken(function(err, token) {
+//         if (err) {
+//             res.sendStatus(500);
+//         } else {
+//             twApi.getTweets(token, function(err, tweets) {
+//                 if (err) {
+//                     res.sendStatus(500);
+//                 } else {
+//                     tweets = filterTweets(tweets);
+//                     res.json(tweets);
+//                 }
+//             });
+//         }
+//     });
+// });
 //---------------------------------------------------------------
 function filterTweets(input) {
     const filteredTweets = input
