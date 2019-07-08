@@ -19,14 +19,14 @@ app.use(function(req, res, next) {
 
 var auth = function(req, res, next) {
     var creds = basicAuth(req);
-    if (!creds || creds.name != 'discoduck' || creds.pass != 'opensesame') {
+    if (!creds || creds.name != 'disco' || creds.pass != '1234') {
         res.setHeader('WWW-Authenticate', 'Basic realm="Enter your credentials to see this stuff."');// this value
         res.sendStatus(401);
     } else {
         next();
     }
 };
-app.use('/spotify', auth); // this will protect the folder of kittycarousel.
+app.use('/spotify', auth);
 
 app.get('/cookie', (req, res) => {
     res.sendFile(__dirname + '/index.html');
@@ -40,6 +40,6 @@ console.log(req.body.acceptCookie);
     } else {
         next();
     }
-})
+});
 app.use(express.static('./public'));
 app.listen(8080, () => console.log(`I'm listening.`));

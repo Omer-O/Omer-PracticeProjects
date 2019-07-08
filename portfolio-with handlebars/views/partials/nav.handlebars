@@ -1,0 +1,17 @@
+
+<div class="partial">
+    <ul>
+        <li>
+            <h1><a href="/">home</a></h1>
+        </li>
+        {{#projects}}
+            <li>
+                <h2><a href="/{{.}}/description">{{.}}</a></h2>
+            </li>
+        {{/projects}}
+        <li>
+            <h1><a href="/about">about</a></h1>
+        </li>
+
+    </ul>
+</div>

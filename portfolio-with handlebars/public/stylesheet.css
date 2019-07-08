@@ -1,0 +1,37 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.main {
+    border: solid 5px #ff0707;
+    background: antiquewhite;
+    text-align: center;
+}
+
+.projects {
+    border: solid 5px #ff0707;
+    background-color: beige;
+    margin: 8px;
+    padding: 8px;
+}
+
+.partial {
+    display: flex;
+    justify-content: space-around;
+    margin: 8px;
+    padding: 8px;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    display: contents;
+    align-self: center;
+}
