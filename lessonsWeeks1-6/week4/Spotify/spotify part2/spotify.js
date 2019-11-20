@@ -28,6 +28,7 @@
         var html = "";
 
         var img;
+        console.log(payload);
 
         for (var i = 0; i < payload.items.length; i++) {
           try {

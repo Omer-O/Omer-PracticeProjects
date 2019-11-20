@@ -1,6 +1,5 @@
 const express = require('express');
 const hb = require('express-handlebars');
-
 const fs = require('fs');
 const projectList = fs.readdirSync('./public');
 

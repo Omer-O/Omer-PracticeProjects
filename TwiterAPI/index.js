@@ -4,7 +4,7 @@ const twApi = require('./twApi');
 
 app.use(express.static('./public'));
 
-app.get('/data.json', (req, res) => {
+app.get('./data.json', (req, res) => {
     twApi.getToken(function(err, token) {
         if (err) {
             res.sendStatus(500);
